@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.a23279.egco428.mylocation.MainActivity">
 
@@ -18,7 +18,10 @@
         android:textSize="20dp"
         android:layout_below="@+id/imageView3"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:background="#e1e0e0"
+        android:textColor="#43a1f9"
+        android:textStyle="bold" />
 
     <ImageView
         android:layout_width="100dp"
@@ -44,7 +47,10 @@
         android:textSize="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_centerVertical="true" />
+        android:layout_centerVertical="true"
+        android:background="#e1e0e0"
+        android:textColor="#43a1f9"
+        android:textStyle="bold" />
 
     <EditText
         android:layout_width="match_parent"
@@ -54,32 +60,49 @@
         android:layout_below="@+id/pass"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Sign in"
-        android:id="@+id/signin"
-        android:layout_marginTop="58dp"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="500dp"
+        android:layout_height="70dp"
+        android:gravity="center"
         android:layout_below="@+id/passW"
-        android:layout_toStartOf="@+id/imageView3"
-        android:onClick="clickSignin" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/linearLayout">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="Sign in"
+            android:id="@+id/signin"
+            android:layout_below="@+id/passW"
+            android:layout_toStartOf="@+id/imageView3"
+            android:onClick="clickSignin"
+            android:background="#43a1f9"
+            android:textColor="#e1e0e0" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:text="Cancle"
+            android:id="@+id/cancle"
+            android:layout_alignBottom="@+id/signin"
+            android:layout_alignParentEnd="true"
+            android:onClick="clickcancle"
+            android:background="#43a1f9"
+            android:textColor="#e1e0e0"
+            android:layout_marginLeft="50dp" />
+    </LinearLayout>
 
     <Button
         android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Cancle"
-        android:id="@+id/cancle"
-        android:layout_alignBottom="@+id/signin"
-        android:layout_alignParentEnd="true"
-        android:onClick="clickcancle" />
-
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:text="Sign up"
         android:id="@+id/signup"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="clickSignup" />
+        android:onClick="clickSignup"
+        android:background="#43a1f9"
+        android:textColor="#e1e0e0"
+        android:layout_below="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
