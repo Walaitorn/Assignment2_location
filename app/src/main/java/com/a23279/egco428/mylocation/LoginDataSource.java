@@ -72,6 +72,23 @@ public class LoginDataSource {
 
     }
 
+    public String findUsername(String User){
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + MySQLiteHelper.TABLE_LOGIN
+                + " WHERE " + MySQLiteHelper.COLUMN_USERNAME + "=" + "'"+User+"'", null);
+        cursor.moveToFirst();
+
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return User;
+        }
+        else {
+            return "";
+        }
+
+    }
+
+
 
     // open program and load all comment
     public List<LoginMessage> getAllComments(){

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.Random;
@@ -128,9 +129,22 @@ public class SignUpPage extends AppCompatActivity implements SensorEventListener
         String Latitude = latitude.getText().toString();
         String Longitude = longitude.getText().toString();
 
-        LoginMessage comment = dataSource.createFortune(Username,Password,Latitude,Longitude);
+        String loginMessage = dataSource.findUsername(Username);
 
-        finish();
+        if(Username.equals("")||Password.equals("")||Latitude.equals("")||Longitude.equals(""))
+        {
+            Toast.makeText(getApplicationContext(), "Please fill in all fields.",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else {
+            if (loginMessage.equals(Username)) {
+                LoginMessage comment = dataSource.createFortune(Username, Password, Latitude, Longitude);
+                finish();
+            } else {
+                Toast.makeText(getApplicationContext(), "Username is already taken",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
 
     }
 
